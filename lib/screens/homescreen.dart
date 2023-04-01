@@ -10,7 +10,7 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
   List<Post>? posts;
-  var isloaded = false;
+  var isloaded = true;
 
   @override
   void initState() {
@@ -20,7 +20,7 @@ class _HomescreenState extends State<Homescreen> {
 
   getData() async {
     Post? posts = await HelperService().getPosts();
-    if (posts == null)
+    if (posts != null)
       setState(() {
         isloaded = false;
       });
@@ -34,18 +34,19 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      appBar: AppBar(
-        title: Text("cccc"),
-      ),
-      body: Visibility(
-        visible: isloaded,
-        replacement: Center(child: CircularProgressIndicator()),
-        child: ListView.builder(
-            itemCount: posts?.length,
-            itemBuilder: (context, index) =>
-                Text(posts![index].data!.toString())),
-      ),
-    ));
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text("cccc"),
+          ),
+          body: Visibility(
+            visible: isloaded,
+            replacement: Center(child: CircularProgressIndicator()),
+            child: ListView.builder(
+              itemCount: posts!.length,
+              itemBuilder: (context, index) =>
+                  Text(posts![index].data.toString()),
+            ),
+          )),
+    );
   }
 }

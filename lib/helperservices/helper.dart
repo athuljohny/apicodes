@@ -14,6 +14,7 @@ class HelperService {
 
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body);
+
       return Post.fromJson(json);
     }
   }
