@@ -12,8 +12,8 @@ class Post {
     required this.source,
   });
 
-  List<Datum>? data;
-  List<Source>? source;
+  List<Datum> data;
+  List<Source> source;
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
@@ -107,4 +107,14 @@ class Annotations {
         topic: json["topic"],
         subtopic: json["subtopic"],
       );
+
+  Map<String, dynamic> toJson() => {
+        "source_name": sourceName,
+        "source_description": sourceDescription,
+        "dataset_name": datasetName,
+        "dataset_link": datasetLink,
+        "table_id": tableId,
+        "topic": topic,
+        "subtopic": subtopic,
+      };
 }
