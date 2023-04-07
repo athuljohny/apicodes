@@ -1,25 +1,27 @@
 // To parse this JSON data, do
 //
-//     final post = postFromJson(jsonString);
+//     final courses = coursesFromJson(jsonString);
 
 import 'dart:convert';
 
-Post postFromJson(String str) => Post.fromJson(json.decode(str));
+Courses coursesFromJson(String str) => Courses.fromJson(json.decode(str));
 
-class Post {
-  Post({
-    required this.data,
-    required this.source,
+class Courses {
+  Courses({
+    this.data,
+    this.source,
   });
 
-  List<Datum> data;
-  List<Source> source;
+  List<Datum>? data;
+  List<Source>? source;
 
-  factory Post.fromJson(Map<String, dynamic> json) => Post(
+  factory Courses.fromJson(Map<String, dynamic> json) => Courses(
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
         source:
             List<Source>.from(json["source"].map((x) => Source.fromJson(x))),
       );
+
+  static Future<List<Courses>>? FromJson(String json) {}
 }
 
 class Datum {

@@ -4,6 +4,6 @@ import 'screens/homescreen.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Homescreen(),
+    home: HomeScreen(),
   ));
 }
