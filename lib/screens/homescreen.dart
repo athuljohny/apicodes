@@ -12,6 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               '${course.idNation}',
                               style: const TextStyle(
-                                color: Color.fromARGB(255, 238, 47, 9),
+                                color: Color.fromARGB(255, 39, 10, 120),
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -59,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   const Icon(
                                     Icons.people,
                                     size: 20,
-                                    color: Color(0xffF56A4D),
+                                    color: Color.fromARGB(255, 85, 245, 77),
                                   ),
                                   const SizedBox(
                                     width: 3,
@@ -92,20 +93,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           "${course.nation}",
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: Color.fromARGB(255, 86, 82, 82),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          "${course.year}",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 78, 64, 59),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Card(
+                              color: Color.fromARGB(255, 211, 185, 191),
+                              elevation: 3,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    15,
+                                  ),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(
+                                  4.0,
+                                ),
+                                child: Text(
+                                  "${course.year}",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 1, 0, 1),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 3,
@@ -114,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Card(
-                              color: Color(0xffF56A4D),
+                              color: Color.fromARGB(255, 82, 93, 122),
                               elevation: 3,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(
